@@ -112,8 +112,10 @@ function findAllJumpMoves() {
 
 function handleSquareClick(e) {
   if (gameState.isGameOver) return;
-  const row = parseInt(e.target.dataset.row);
-  const col = parseInt(e.target.dataset.col);
+  const square = e.target.closest('.square');
+  if (!square) return;
+  const row = parseInt(square.dataset.row);
+  const col = parseInt(square.dataset.col);
   if (isNaN(row) || isNaN(col)) return;
 
   // if clicking on own piece
